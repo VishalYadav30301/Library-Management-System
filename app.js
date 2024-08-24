@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get("/", function (req, res) {
-    res.render("home", {
+    res.render("index", {
         data: books
     })
 })
@@ -45,7 +45,7 @@ app.post("/", (req, res) => {
         bookState: "Available"
     })
 
-    res.render("home", {
+    res.render("index", {
         data: books
     })
 })
@@ -57,7 +57,7 @@ app.post('/issue', (req, res) => {
             book.bookState = "Issued";
         }
     })
-    res.render("home", {
+    res.render("index", {
         data: books
     })
 })
@@ -69,7 +69,7 @@ app.post('/return', (req, res) => {
             book.bookState = "Available";
         }
     })
-    res.render("home", {
+    res.render("index", {
         data: books
     })
 })
@@ -83,11 +83,11 @@ app.post('/delete', (req, res) => {
             books.splice((j - 1), 1)
         }
     })
-    res.render("home", {
+    res.render("index", {
         data: books
     })
 })
 
-app.listen(3000, (req, res) => {
-    console.log("App is running on port 3000")
-})
+// app.listen(3000, (req, res) => {
+//     console.log("App is running on port 3000")
+// })
